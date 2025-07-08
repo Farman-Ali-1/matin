@@ -38,12 +38,12 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="h-screen flex bg-[#111D27] overflow-hidden">
+    <div className="h-screen flex bg-[#1E2B45] overflow-hidden">
       {/* Left Side Image */}
-      <div className="w-1/2 hidden lg:block relative">
+      <div className="w-3/7 hidden ml-10 my-10  lg:block relative">
         <button
           onClick={() => router.push("/")}
-          className="absolute flex gap-2 top-4 left-4 p-2 px-4 text-[#CBA135] bg-[#D9D9D9] shadow-md hover:bg-gray-50 transition"
+          className="absolute flex gap-2 top-3 left-10 p-2 px-4 text-[#A5893A] bg-[#38454F] z-10 shadow-md hover:bg-gray-50 transition"
         >
           Back to Website <FaArrowRight className="text-lg" />
         </button>
@@ -55,94 +55,93 @@ export default function LoginPage() {
       </div>
 
       {/* Right Side Login Form */}
-      <div className="w-full h-full lg:w-1/2 flex flex-col justify-center items-center py-10 px-8 gap-10 overflow-y-auto relative">
-        <div className="w-fit h-fit  rounded-full border border-[#CBA135] p-1 absolute left-2 top-2 rotate-120">
-          <div className="relative flex justify-center items-center w-10 h-10 rounded-full">
-            {/* Two radial lines */}
-            <div className="absolute w-[1.5px] h-6 bg-[#CBA135] origin-bottom rotate-[45deg]"></div>
-            <div className="absolute w-[1.5px] h-6 bg-[#CBA135] origin-bottom -rotate-[45deg]"></div>
+      <div className="w-full flex-1 h-screen lg:w-1/2 flex md:px-20   flex-col justify-center items-center  overflow-y-auto relative">
+        <div className=" px-10 w-full py-10 h-full my-20   relative text-center">
+          <h2 className="text-3xl font-semibold text-[#CBA135] ">
+            Login your account
+          </h2>
+          <p className="text-sm text-white mb-6">
+            Don’t have an account?
+            <Link href="/register" className="text-[#CBA135] underline ml-1">
+              Register
+            </Link>
+          </p>
 
-            {/* Circular Arc */}
-            <div className="absolute arc-sector w-10 h-10 border-[1.5px] border-[#CBA135] rounded-full clip-sector rotate-[-45deg]"></div>
-          </div>
-        </div>
-
-        {/* Main Login Box */}
-        <div className="border-2 border-[#CBA135] p-4 w-full flex items-center justify-center">
-          <div className="border-2 border-[#CBA135] p-4 w-full flex items-center justify-center">
-            <div className="w-full max-w-md text-center">
-              <h2 className="text-3xl font-semibold text-[#CBA135] mb-4">
-                Login your account
-              </h2>
-              <p className="text-sm text-white mb-6">
-                Don’t have an account?
-                <Link
-                  href="/register"
-                  className="text-[#CBA135] underline ml-1"
-                >
-                  Register
-                </Link>
-              </p>
-
-              <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Email"
-                  className="p-5 rounded bg-transparent border-2 border-[#CBA135] text-[#CBA135] outline-none"
-                  required
-                />
-                <input
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Password"
-                  className="p-5 rounded bg-transparent border-2 border-[#CBA135] text-[#CBA135] outline-none"
-                  required
-                />
-
-                <div className="flex justify-end text-sm">
-                  <Link
-                    href="/forgot-password"
-                    className="text-[#CBA135] underline"
-                  >
-                    Forgot password?
-                  </Link>
-                </div>
-
-                {error && <p className="text-red-500 text-sm">{error}</p>}
-
-                <button
-                  type="submit"
-                  className="bg-transparent border border-[#CBA135] text-2xl p-3 text-[#CBA135] hover:opacity-90 transition"
-                >
-                  Login account
-                </button>
-              </form>
-
-              <div className="flex items-center my-6 text-white">
-                <div className="flex-grow h-px bg-gray-500" />
-                <span className="mx-4 text-sm whitespace-nowrap">
-                  or login with
-                </span>
-                <div className="flex-grow h-px bg-gray-500" />
-              </div>
-
-              <div className="flex gap-4">
-                <button
-                  onClick={handleGoogleLogin}
-                  className="flex-1 flex items-center justify-center gap-2 border-[#CBA135] border rounded py-2 text-white hover:bg-[#CBA135] transition"
-                >
-                  <FaGoogle className="w-5 h-5" />
-                  Google
-                </button>
-                <button className="flex-1 flex items-center justify-center gap-2 border border-[#CBA135] rounded py-2 text-white hover:bg-[#CBA135] transition">
-                  <FaFacebook className="w-5 h-5 text-blue-600" />
-                  Facebook
-                </button>
-              </div>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+                className="p-3 w-full text-sm md:text-base  border-b-2 border-[#CBA135]  text-[#CBA135] outline-none"
+              required
+            />
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+                className="p-3 w-full text-sm md:text-base border-b-2 border-[#CBA135]  text-[#CBA135] outline-none"
+              required
+            />
+            <div className="flex justify-end text-sm">
+              <Link
+                href="/forgot-password"
+                className="text-[#CBA135] underline"
+              >
+                Forgot password?
+              </Link>
             </div>
+            {error && <p className="text-red-500 text-sm">{error}</p>}
+            <button
+              type="submit"
+              className="bg-[#CBA135] text-white  text-base md:text-lg lg:text-xl py-3 rounded hover:opacity-90 transition"
+            >
+              Login account
+            </button>
+          </form>
+
+          {/* Decorative Bars and Corners */}
+          <div className="h-5 border-2 border-[#CBA135] absolute top-0 left-[3rem] right-[3rem]"></div>
+          <div className="h-5 border-2 border-[#CBA135] absolute bottom-0 left-[3rem] right-[3rem]"></div>
+          <div className="w-5 h-[calc(100%-6rem)] border-2 border-[#CBA135] absolute left-0 top-[3rem]"></div>
+          <div className="w-5 h-[calc(100%-6rem)] border-2 border-[#CBA135] absolute right-0 top-[3rem]"></div>
+
+          <div className="absolute border-t-2 border-r-2 border-[#CBA135] w-12 h-12 left-0 bottom-0 rounded-tr-[2.3rem]">
+            <div className="absolute w-8 h-8 left-0 bottom-0 rounded-tr-full border-2 border-[#CBA135]"></div>
+          </div>
+          <div className="absolute border-t-2 border-l-2 border-[#CBA135] w-12 h-12 right-0 bottom-0 rounded-tl-[2.3rem]">
+            <div className="absolute w-8 h-8 right-0 bottom-0 rounded-tl-full border-2 border-[#CBA135]"></div>
+          </div>
+          <div className="absolute border-b-2 border-l-2 border-[#CBA135] w-12 h-12 right-0 top-0 rounded-bl-[2.3rem]">
+            <div className="absolute w-8 h-8 right-0 top-0 rounded-bl-full border-2 border-[#CBA135]"></div>
+          </div>
+          <div className="absolute border-b-2 border-r-2 border-[#CBA135] w-12 h-12 left-0 top-0 rounded-br-[2.3rem]">
+            <div className="absolute w-8 h-8 left-0 top-0 rounded-br-full border-2 border-[#CBA135]"></div>
+          </div>
+
+          {/* Divider */}
+          <div className="flex items-center my-6 text-white">
+            <div className="flex-grow h-px bg-gray-500" />
+            <span className="mx-4 text-sm whitespace-nowrap">
+              or login with
+            </span>
+            <div className="flex-grow h-px bg-gray-500" />
+          </div>
+
+          {/* Social Buttons */}
+          <div className="flex gap-4">
+            <button
+              onClick={handleGoogleLogin}
+              className="flex-1 flex items-center justify-center gap-2 border-[#CBA135] border rounded py-2 text-white hover:bg-[#CBA135] transition"
+            >
+              <FaGoogle className="w-5 h-5" />
+              Google
+            </button>
+            <button className="flex-1 flex items-center justify-center gap-2 border border-[#CBA135] rounded py-2 text-white hover:bg-[#CBA135] transition">
+              <FaFacebook className="w-5 h-5 text-blue-600" />
+              Facebook
+            </button>
           </div>
         </div>
       </div>

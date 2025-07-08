@@ -4,7 +4,7 @@ import Image from 'next/image'
 function page() {
   return (
     <div>
-      <Image src={LandingPage} alt="LandingPage"/>
+      <Image src={LandingPage} height={100} width={1000} alt="LandingPage"/>
     </div>
   )
 }
