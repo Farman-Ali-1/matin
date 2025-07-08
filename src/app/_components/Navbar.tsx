@@ -1,34 +1,47 @@
-import React from 'react';
+"use client";
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 import logo from "../../../public/logo.png";
-import Image from 'next/image';
-import { IoBagOutline } from 'react-icons/io5';
-import { GoPerson } from 'react-icons/go';
-import { RiSearch2Line } from 'react-icons/ri';
+import { IoBagOutline } from "react-icons/io5";
+import { GoPerson } from "react-icons/go";
+import { RiSearch2Line } from "react-icons/ri";
 
-function Navbar() {
+export default function Navbar() {
   return (
-    <div className="flex items-center justify-between p-4 bg-white ">
+    <nav className="flex items-center justify-between p-4 bg-background text-text lg:px-28 md:px-16 px-6">
       {/* Logo */}
       <div className="w-1/6 min-w-[100px]">
-        <Image src={logo} alt="logo" height={40} />
+        <Link href="/">
+          <Image src={logo} alt="logo" height={40} className="cursor-pointer" />
+        </Link>
       </div>
 
       {/* Navigation Links */}
-      <div className="flex-1 flex justify-center items-center gap-6 text-sm font-medium text-gray-700">
-        <span className="uppercase cursor-pointer hover:underline p-2 text-[#CBA135]">Home</span>
-        <span className="uppercase cursor-pointer hover:underline p-2 text-[#CBA135]">Shop All</span>
-        <span className="uppercase cursor-pointer hover:underline p-2 text-[#CBA135]">Shop By Category</span>
-        <span className="uppercase cursor-pointer hover:underline p-2 text-[#CBA135]">Contact</span>
+      <div className="hidden md:flex flex-1 justify-center items-center gap-6 text-sm font-medium">
+        <Link href="/" className="uppercase hover:underline p-2 text-[#CBA135]">
+          Home
+        </Link>
+        <Link href="/cartsection" className="uppercase hover:underline p-2 text-[#CBA135]">
+          Cartsection
+        </Link>
+        <Link href="/shop" className="uppercase hover:underline p-2 text-[#CBA135]">
+          Shop All
+        </Link>
+        <Link href="/category" className="uppercase hover:underline p-2 text-[#CBA135]">
+          Shop By Category
+        </Link>
+        <Link href="/contact" className="uppercase hover:underline p-2 text-[#CBA135]">
+          Contact
+        </Link>
       </div>
 
       {/* Icons */}
-      <div className="flex gap-8 items-center w-1/6 justify-start text-[#CBA135]">
-        <RiSearch2Line className="text-xl cursor-pointer" />
-        <GoPerson className="text-xl cursor-pointer" />
-        <IoBagOutline className="text-xl cursor-pointer" />
+      <div className="flex gap-6 items-center w-1/6 justify-end text-[#CBA135] text-xl">
+        <RiSearch2Line className="cursor-pointer" />
+        <GoPerson className="cursor-pointer" />
+        <IoBagOutline className="cursor-pointer" />
       </div>
-    </div>
+    </nav>
   );
 }
-
-export default Navbar;
