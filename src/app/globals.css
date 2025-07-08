@@ -24,3 +24,75 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+/* globals.css */
+.custom-swiper .swiper-pagination-bullets {
+  bottom: 20px !important;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.custom-swiper .swiper-pagination-bullet {
+  width: 30px;
+  height: 5px;
+  background: white;
+  border-radius: 4px;
+  opacity: 1;
+  transition: background 0.3s ease;
+}
+
+.custom-swiper .swiper-pagination-bullet-active {
+  background: #CBA135;
+}
+
+
+/* Decorative corner accents for login box */
+.custom-box {
+  position: relative;
+}
+
+.corner-tl,
+.corner-tr,
+.corner-bl,
+.corner-br {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  border: 2px solid #CBA135;
+}
+
+.corner-tl {
+  top: -10px;
+  left: -10px;
+  /* border-right: none; */
+  /* border-bottom: none; */
+}
+
+.corner-tr {
+  top: -2px;
+  right: -2px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.corner-bl {
+  bottom: -2px;
+  left: -2px;
+  border-right: none;
+  border-top: none;
+}
+
+.corner-br {
+  bottom: -2px;
+  right: -2px;
+  border-left: none;
+  border-top: none;
+}
+
+.arc-sector {
+  clip-path: polygon(10% 100%, 100% 100%, 100% 100%, 100% 30%, 10% 100%, 100% 100%, 100% 100%, 100% 100%);
+  transform: rotate(260deg);
+}
+
