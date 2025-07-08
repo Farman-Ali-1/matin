@@ -59,7 +59,7 @@ export default function Page() {
   const router = useRouter();
 
   useEffect(() => {
-    router.replace('/');
+    router.replace('/home');
   }, [router]);
 
   return <div></div>;

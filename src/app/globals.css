@@ -1,4 +1,9 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import 'swiper/css';
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
 
 :root {
   --background: #ffffff;
@@ -8,7 +13,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: 'Poppins', sans-serif;
   --font-mono: var(--font-geist-mono);
 }
 
@@ -22,9 +27,8 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+ font-family: 'Poppins', sans-serif;
 }
-
 
 /* globals.css */
 .custom-swiper .swiper-pagination-bullets {
@@ -96,3 +100,24 @@ body {
   transform: rotate(260deg);
 }
 
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.button-background {
+  background-color: #1E2B45;
+}
+.button-text {
+  color: white;
+  font-weight: 500;
+}
+
+.background-color {
+  background-color: #1E2B45;
+}
+
+.explore_button {
+  background-color: #CBA135;
+  color: white;
+  font-weight: 500;
+}
