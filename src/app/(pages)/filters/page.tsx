@@ -12,7 +12,7 @@ const products = Array.from({ length: 50 }, (_, i) => ({
   image: "/assets/dates5.webp",
 }));
 
-export default function Home() {
+export default function Page() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [maxPrice, setMaxPrice] = useState(200);
   const [sortBy, setSortBy] = useState("lowToHigh");
@@ -121,14 +121,14 @@ export default function Home() {
             {paginatedProducts.map((product) => (
               <div
                 key={product.id}
-                className="bg-background text-primary border border-primary p-4 rounded-3xl"
+                className="bg-background text-primary  p-4 "
               >
                 <Image
                   height={260}
                   width={160}
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-70 object-cover rounded mb-2"
+                  className="w-full h-70 object-cover rounded-t-3xl mb-2"
                 />
                 <div className="flex justify-between">
                   <h3 className="text-lg font-bold">{product.name}</h3>
