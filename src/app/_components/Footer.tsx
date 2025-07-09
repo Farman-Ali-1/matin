@@ -14,7 +14,7 @@ export default function Footer() {
       <div className="flex flex-col lg:flex-row gap-12 justify-between border-b border-white/20 pb-10">
         {/* Left Section */}
         <div className="flex flex-col gap-4 max-w-md">
-          <Image width={70} height={70} src='/assets/logo.png'/>
+          <Image width={70} alt="logo" height={70} src='/assets/logo.png'/>
           <p className="text-sm">
             We earned a reputation of being good at what we do. Let us take your
             online shop to new dimension in success!
