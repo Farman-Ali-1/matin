@@ -17,7 +17,7 @@ function Page() {
          <Navbar />
       </div>
       {/* ✅ Banner section (responsive) */}
-      <div className="relative h-[100vh] w-full min-h-[500px]">
+      <div className="relative h-fit lg:h-[100vh] w-full lg:min-h-[500px]">
         <Image
           src={LandingPage}
           alt="Landing Page"
