@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
-import { auth, db } from "../../firebase";
+import { auth, db, googleProvider } from "../../firebase";
 import Image from "next/image";
 import bgImage from "../../../../public/assets/Signup.png";
 import { FaArrowRight, FaFacebook, FaGoogle } from "react-icons/fa";

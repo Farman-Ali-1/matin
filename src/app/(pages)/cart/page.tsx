@@ -35,7 +35,7 @@ const initialProducts = [
 export default function Page() {
   const [products, setProducts] = useState(initialProducts);
 
-  const handleQuantity = (index, type) => {
+  const handleQuantity = (index:any, type:any) => {
     setProducts((prev) => {
       const updated = [...prev];
       const current = updated[index];
@@ -45,7 +45,7 @@ export default function Page() {
     });
   };
 
-  const handleRemove = (index) => {
+  const handleRemove = (index:any) => {
     setProducts((prev) => prev.filter((_, i) => i !== index));
   };
 
