@@ -134,11 +134,11 @@ export default function Page() {
               placeholder="Add promo code"
               className="flex-1 px-3 py-2 rounded bg-[#0e1a34] text-sm text-white outline-none border border-white/30"
             />
-            <button className="px-4 py-2 text-sm bg-[#CBA135] text-white rounded-full hover:opacity-90">
+            <button className="px-4 py-2 text-sm bg-primary text-white rounded-full hover:opacity-90">
               Apply
             </button>
           </div>
-          <button className="w-full py-3 bg-[#CBA135] text-white rounded-full font-semibold hover:opacity-90">
+          <button className="w-full py-3 bg-primary text-white rounded-full font-semibold hover:opacity-90">
             Go to checkout →
           </button>
         </div>
