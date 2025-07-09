@@ -6,6 +6,9 @@ import LandingPage from "../../../../public/assets/Landing_Page_banner.png";
 import ExploreSection from './components/Explore';
 import Signature_Collection from "./components/Signature_Collection";
 import Navbar from "@/app/_components/HomeNavbar";
+import Occation_Base_Gifting from "./components/occation_base_gafiting";
+import Chose_your_own from "./components/Chose_your_own";
+import Second_Last from "./components/Second_Last";
 
 function Page() {
   return (
@@ -49,6 +52,15 @@ function Page() {
 
       {/* ✅ Signature Collection (assumed responsive) */}
       <Signature_Collection />
+
+      {/* occation base gifting        */}
+      <Occation_Base_Gifting />
+
+      {/* your own choice */}
+      <Chose_your_own />
+
+      {/* second last section  */}
+      <Second_Last />
     </div>
   );
 }
