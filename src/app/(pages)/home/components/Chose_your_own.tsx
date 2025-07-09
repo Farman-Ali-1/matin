@@ -37,7 +37,7 @@ function Chose_your_own() {
             alt="Bottom Overlay Image"
             width={150}
             height={150}
-            className="absolute lg:flex hidden top-[70%] right-[30%]"
+            className="absolute lg:flex hidden top-[65%] right-[35%]"
           />
         </div>
       </div>
