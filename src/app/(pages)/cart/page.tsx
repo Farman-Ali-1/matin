@@ -10,7 +10,7 @@ const initialProducts = [
     size: "Large",
     color: "White",
     price: 145,
-    image: "https://northwestriders.com/products/blank-midweight-60-40-blend-t-shirt-white", // from turn0image1
+    image: "/assets/dates1.webp", // from turn0image1
     quantity: 1,
   },
   {
@@ -18,7 +18,7 @@ const initialProducts = [
     size: "Medium",
     color: "Red",
     price: 180,
-    image: "https://sanfranpsycho.com/products/red-black-checkered-sfp-flannel",  // from turn0image10
+    image: "/assets/dates2.jpg",  // from turn0image10
     quantity: 1,
   },
   {
@@ -26,7 +26,7 @@ const initialProducts = [
     size: "Large",
     color: "Blue",
     price: 240,
-    image: "https://partsandlaborshop.com/products/short-sleeve-crew-neck-t-shirt-in-white",  // from turn0image6
+    image: "/assets/dates5.webp",  // from turn0image6
     quantity: 1,
   },
 
@@ -74,7 +74,7 @@ export default function Page() {
                   alt={product.name}
                   width={80}
                   height={80}
-                  className=" rounded-lg object-cover"
+                  className=" rounded-lg w-20 h-30 object-cover"
                 />
                 <div className="flex-1">
                   <p className="font-semibold text-sm">{product.name}</p>
