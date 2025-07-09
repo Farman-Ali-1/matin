@@ -5,13 +5,18 @@
 @import "swiper/css/navigation";
 @import "swiper/css/pagination";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-background: oklch(0.2587 0.0392 263.71);
+  --color-primary: oklch(0.7092 0.1544 84.61);
+  --color-text: oklch(0.7461 0.1514 85.46);
+}
+.dark {
+  --color-background: oklch(0.1 0.02 263.71); /* darker */
+  --color-primary: oklch(0.7092 0.1544 84.61); /* same or dimmer */
+  --color-text: oklch(0.729 0.1306 86.65); /* brighter text */
 }
 
 @theme inline {
-  --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: 'Poppins', sans-serif;
   --font-mono: var(--font-geist-mono);
