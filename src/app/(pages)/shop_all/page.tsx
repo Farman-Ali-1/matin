@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { FaSquareArrowUpRight } from "react-icons/fa6";
 import image from "../../../../public/assets/own_choice_right_up.png";
+import { useRouter } from "next/navigation";
 
 function Page() {
+  const router = useRouter();
   const filters = [
     "All",
     "Collector Edition",
@@ -87,7 +89,7 @@ function Page() {
       </div>
 
       {/* Cards Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div onClick={()=>router.push("/product_detail")} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {filteredCards.map((card, index) => (
           <div key={index} className="flex flex-col gap-2">
             <Image

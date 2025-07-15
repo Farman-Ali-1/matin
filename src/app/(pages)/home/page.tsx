@@ -9,6 +9,7 @@ import Navbar from "@/app/_components/HomeNavbar";
 import Occation_Base_Gifting from "./components/Occation_base_gafiting";
 import Chose_your_own from "./components/Chose_your_own";
 import Second_Last from "./components/Second_Last";
+import "../../../app/globals.css";
 
 function Page() {
   return (

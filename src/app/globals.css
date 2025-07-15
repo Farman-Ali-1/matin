@@ -5,6 +5,14 @@
 @import "swiper/css/navigation";
 @import "swiper/css/pagination";
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+
+
 @theme {
   --color-background: oklch(0.2587 0.0392 263.71);
   --color-primary: oklch(0.7092 0.1544 84.61);
@@ -32,7 +40,8 @@
 body {
   background: var(--background);
   color: var(--foreground);
- font-family: 'Poppins', sans-serif;
+  @apply bg-background text-foreground;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* globals.css */
