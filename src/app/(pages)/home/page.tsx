@@ -5,21 +5,39 @@ import Image from "next/image";
 import LandingPage from "../../../../public/assets/Landing_Page_banner.png";
 import ExploreSection from './components/Explore';
 import Signature_Collection from "./components/Signature_Collection";
-import Navbar from "@/app/_components/HomeNavbar";
+// import Navbar from "@/app/_components/HomeNavbar";
 import Occation_Base_Gifting from "./components/Occation_base_gafiting";
 import Chose_your_own from "./components/Chose_your_own";
 import Second_Last from "./components/Second_Last";
 import "../../../app/globals.css";
+import Carousel from "./components/Carosel";
+import Navbar from "@/app/_components/Navbar";
+import LatestProducts from "./components/DiscoverSection";
+import DiscoverSection from "./components/DiscoverSection";
+import BestSellers from "./components/BestSellers";
+import FeaturedProducts from "./components/FeaturedProducts";
+import LuxuryGifts from "./components/LuxuryGifts";
+import MakingBox from "./components/MakingBox";
+import BoutiqueSection from "./components/BoutiqueSection";
+import Testimonial from "./components/Testimonial";
+import AboutUs from "./components/Aboutus";
 
 function Page() {
+  const images = [
+  '/carousel/slide1.jpg',
+  '/carousel/slide2.jpg',
+  '/carousel/slide3.jpg',
+];
+
   return (
-    <div className="flex flex-col justify-center items-center w-full">
+    <div className="flex flex-col overflow-x-hidden justify-center items-center w-full">
       <div className="w-full">
-         <Navbar />
+         {/* <Navbar /> */}
       </div>
       {/* ✅ Banner section (responsive) */}
-      <div className="relative  lg:h-[100vh] w-full min-h-[500px]">
-        <Image
+      {/* <div className="relative  lg:h-[100vh] w-full min-h-[500px]"> */}
+        {/* Carosel */}
+        {/* <Image
           src={LandingPage}
           alt="Landing Page"
           fill
@@ -45,23 +63,49 @@ function Page() {
               Shop Now
             </button>
           </div>
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
+            <Carousel images={images} interval={5000} />
+
+      <DiscoverSection />
+      <BestSellers />
+      {/* <FeaturedProducts /> */}
+      <LuxuryGifts />
+      <MakingBox />
+      <Testimonial />
+      <AboutUs/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       {/* ✅ Explore More Section (already responsive inside) */}
-      <ExploreSection />
+      {/* <ExploreSection /> */}
 
       {/* ✅ Signature Collection (assumed responsive) */}
-      <Signature_Collection />
+      {/* <Signature_Collection /> */}
 
       {/* occation base gifting        */}
-      <Occation_Base_Gifting />
+      {/* <Occation_Base_Gifting /> */}
 
       {/* your own choice */}
-      <Chose_your_own />
+      {/* <Chose_your_own /> */}
 
       {/* second last section  */}
-      <Second_Last />
+      {/* <Second_Last /> */}
     </div>
   );
 }
