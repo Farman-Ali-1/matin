@@ -17,6 +17,7 @@
   --color-background: oklch(0.2587 0.0392 263.71);
   --color-primary: oklch(0.7092 0.1544 84.61);
   --color-text: oklch(0.7461 0.1514 85.46);
+  --color-foreground: oklch(0.9844 0.058 105.31);
 }
 .dark {
   --color-background: oklch(0.1 0.02 263.71); /* darker */
@@ -134,4 +135,34 @@ body {
   background-color: #CBA135;
   color: white;
   font-weight: 500;
+}
+
+.hide-scrollbar {
+  overflow: auto;
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* Internet Explorer and Edge */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;               /* Chrome, Safari, Opera */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide both vertical and horizontal scrollbars */
+body {
+  overflow: hidden;
+  overflow-y: scroll; /* allow vertical scroll but hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
 }
