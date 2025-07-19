@@ -25,7 +25,7 @@ export default function Page() {
   const [selectedImage, setSelectedImage] = useState(productData.images[0]);
   const [size, setsize] = useState(3);
   return (
-    <div className="bg-background text-text p-4 flex flex-col justify-around lg:flex-row gap-10">
+    <div className="bg-white text-text p-4 flex flex-col justify-around lg:flex-row gap-10">
       {/* Left Image Gallery */}
       <div className="flex flex-col-reverse  lg:flex-row gap-4 items-center w-full lg:w-1/2">
         {/* Thumbnails */}
@@ -61,7 +61,7 @@ export default function Page() {
 
       {/* Product Info */}
       <div className="w-full lg:w-2/5 mt-6 lg:mt-0">
-        <p className="text-sm text-white uppercase mb-1">Jacket</p>
+        <p className="text-sm text-black uppercase mb-1">Jacket</p>
         <h2 className="text-2xl md:text-3xl font-bold mb-3">
           {productData.name}
         </h2>

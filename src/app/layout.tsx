@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
      <html lang="en" className={poppins.variable}>
-      <body className={`${geistSans.variable} ${geistMono.variable} hide-scrollbar background-color font-poppins antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} hide-scrollbar  font-poppins antialiased`}>
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

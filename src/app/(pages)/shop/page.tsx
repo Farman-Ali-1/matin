@@ -45,12 +45,12 @@ export default function Page() {
   };
 
   return (
-    <main className="min-h-screen bg-background text-white p-4 sm:p-6 md:p-8">
+    <main className="min-h-screen bg-white text-white p-4 sm:p-6 md:p-8">
       <h1 className="text-3xl font-bold mb-6">Dates Gift Store</h1>
 
       <div className="flex flex-col md:flex-row gap-6">
         {/* Sidebar */}
-        <aside className="w-full md:w-1/4 border border-primary rounded-4xl p-4 bg-background text-primary h-fit">
+        <aside className="w-full md:w-1/4 border border-primary rounded-4xl p-4 text-primary h-fit">
           <h2 className="text-2xl font-bold mb-4">Filter Products</h2>
 
           {/* Category Filter with Checkboxes */}
@@ -116,9 +116,9 @@ export default function Page() {
         {/* Product Section */}
         <section className="flex-1 flex flex-col gap-4">
           {/* Top Bar */}
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-background">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-white">
             <div>
-              <p className="text-sm">
+              <p className="text-sm text-black">
                 Showing {paginatedProducts.length} results from total{" "}
                 {filteredProducts.length} for{" "}
                 <span className="text-primary font-semibold">
@@ -129,7 +129,7 @@ export default function Page() {
                 {selectedCategories.map((cat) => (
                   <span
                     key={cat}
-                    className="px-3 py-1 bg-primary text-background rounded-full text-xs flex items-center gap-1"
+                    className="px-3 py-1 bg-primary text-black rounded-full text-xs flex items-center gap-1"
                   >
                     {cat}
                     <button
