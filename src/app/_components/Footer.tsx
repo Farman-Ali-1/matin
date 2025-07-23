@@ -10,7 +10,7 @@ import { FiMapPin, FiMail, FiPhone } from "react-icons/fi";
 
 export default function Footer() {
   return (
-    <footer className="bg-background text-text px-4 md:px-40 py-12">
+    <footer className="bg-[#] text-text px-4 md:px-40 py-12">
       <div className="flex flex-col lg:flex-row gap-12 justify-between border-b border-white/20 pb-10">
         {/* Left Section */}
         <div className="flex flex-col gap-4 max-w-md">

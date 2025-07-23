@@ -15,9 +15,10 @@ import "swiper/css/pagination";
 
 export default function RegisterPage() {
   const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [agreed] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
 
@@ -25,8 +26,8 @@ export default function RegisterPage() {
     e.preventDefault();
     setError("");
 
-    if (!agreed) {
-      setError("You must agree to the Terms & Conditions.");
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
       return;
     }
 
@@ -34,12 +35,13 @@ export default function RegisterPage() {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
-        password
+        password,
       );
       const user = userCredential.user;
 
       await setDoc(doc(db, "users", user.uid), {
-        name: `${firstName}`,
+        firstName: `${firstName}`,
+        lastName: `${lastName}`,
         email: user.email,
         role: "user",
         createdAt: serverTimestamp(),
@@ -120,8 +122,8 @@ export default function RegisterPage() {
               <input
                 type="text"
                 placeholder="Last Name"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
                 className="p-3 w-full text-sm md:text-base border-b-2 border-[#CBA135]  text-[#CBA135] outline-none"
                 required
               />
@@ -146,8 +148,8 @@ export default function RegisterPage() {
             <input
               type="password"
               placeholder="Confirm Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
               className="p-3 text-sm md:text-base border-b-2 border-[#CBA135]  w-11/12  text-[#CBA135] outline-none"
               required
             />
@@ -207,3 +209,6 @@ export default function RegisterPage() {
     </div>
   );
 }
+
+
+

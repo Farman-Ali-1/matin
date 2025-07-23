@@ -5,10 +5,12 @@ import { useRouter } from "next/navigation";
 const products = Array.from({ length: 50 }, (_, i) => ({
   id: i + 1,
   name: `Dates Box ${i + 1}`,
-  price: 80 + (i * 5) % 100,
+  price: 80 + ((i * 5) % 100),
   category: ["Premium", "Luxury", "Traditional", "Standard"][i % 4],
   image: "/assets/dates5.webp",
 }));
+import useStore from "../../store/store";
+import useProductStore from "@/app/store/product";
 
 export default function Page() {
   const router = useRouter();
@@ -17,8 +19,16 @@ export default function Page() {
   const [sortBy, setSortBy] = useState("lowToHigh");
   const [currentPage, setCurrentPage] = useState(1);
   const [showCategories, setShowCategories] = useState(false);
-
+  const { addtoCart } = useStore();
   const productsPerPage = 9;
+  const setSelectedProduct = useProductStore(
+    (state) => state.setSelectedProduct
+  );
+
+  
+  const handlAddtoCart = (product: any) => {
+    addtoCart(product);
+  };
 
   const filteredProducts = products
     .filter((p) =>
@@ -166,13 +176,17 @@ export default function Page() {
           </div>
 
           {/* Products Grid */}
-          <div onClick={() => router.push("/product_detail")} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {paginatedProducts.map((product) => (
               <div
                 key={product.id}
-                className="bg-background text-primary p-4 rounded-2xl border border-white/10"
+                className="bg-white  text-primary p-4 rounded-2xl border "
               >
                 <Image
+                  onClick={() => {
+                    setSelectedProduct(product);
+                    router.push("/product_detail");
+                  }}
                   height={260}
                   width={160}
                   src={product.image}
@@ -181,9 +195,19 @@ export default function Page() {
                 />
                 <div className="flex justify-between">
                   <h3 className="text-lg font-bold">{product.name}</h3>
-                  <p className="text-white font-semibold">${product.price}</p>
+                  <p className="text-[#CBA135] font-semibold">
+                    ${product.price}
+                  </p>
                 </div>
-                <p className="text-sm">{product.category}</p>
+                <div className="flex justify-between">
+                  <p className="text-sm">{product.category}</p>
+                  <button
+                    className="p-1 border"
+                    onClick={() => handlAddtoCart(product)}
+                  >
+                    Add Cart
+                  </button>
+                </div>
               </div>
             ))}
           </div>
@@ -193,7 +217,7 @@ export default function Page() {
             <button
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}
-              className="border border-primary px-4 py-2 rounded-full"
+              className="border border-primary text-primary px-4 py-2 rounded-full"
             >
               ← Previous
             </button>
@@ -204,7 +228,7 @@ export default function Page() {
                 onClick={() => handlePageChange(i + 1)}
                 className={`px-3 py-1 rounded-full ${
                   currentPage === i + 1
-                    ? "bg-primary text-background"
+                    ? "bg-background text-white"
                     : "text-primary"
                 }`}
               >
@@ -231,7 +255,7 @@ export default function Page() {
             <button
               onClick={() => handlePageChange(currentPage + 1)}
               disabled={currentPage === totalPages}
-              className="border border-primary px-4 py-2 rounded-full"
+              className="border border-primary text-primary px-4 py-2 rounded-full"
             >
               Next →
             </button>

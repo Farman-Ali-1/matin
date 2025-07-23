@@ -9,6 +9,8 @@ import { RiSearch2Line } from "react-icons/ri";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaMailBulk, FaPhoneAlt, FaGlobe } from "react-icons/fa";
 import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
+import useStore from "../store/store";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,6 +19,9 @@ export default function Navbar() {
   const [showLangDropdown, setShowLangDropdown] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+  const router = useRouter();
+  const { cart } = useStore();
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -78,15 +83,24 @@ export default function Navbar() {
             />
           )}
 
-          <div
-            className="flex items-center gap-4 transition-colors duration-200 text-white"
-          >
+          <div className="flex items-center gap-4 transition-colors duration-200 text-white">
             <RiSearch2Line
               className="text-xl cursor-pointer"
               onClick={() => setShowSearch((prev) => !prev)}
             />
             <GoPerson className="text-xl cursor-pointer" />
-            <IoBagOutline className="text-xl cursor-pointer" />
+            <div
+              className="relative cursor-pointer"
+              onClick={() => router.push("/cart")}
+            >
+              <IoBagOutline className="text-xl" />
+              {totalItems > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">
+                  {totalItems}
+                </span>
+              )}
+            </div>
+
             {/* Language Dropdown */}
             <div className="relative" ref={langRef}>
               <FaGlobe
