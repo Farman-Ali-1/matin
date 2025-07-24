@@ -4,7 +4,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import { Poppins } from 'next/font/google'
-
+import ClientLayout from "../_components/ClientLayout";
+import Sidebar from "./_components/Sidebar";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -30,8 +31,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
      <html lang="en" className={poppins.variable}>
-      <body className={`${geistSans.variable} ${geistMono.variable} background-color font-poppins antialiased`}>
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} bg-white font-poppins antialiased`}>
+        <div className="flex flex-row w-full bg-white">
+          <div className="w-1/5"><Sidebar/></div>
+          <div className="w-4/5"><ClientLayout>{children}</ClientLayout></div>
+        </div>
       </body>
     </html>
   );

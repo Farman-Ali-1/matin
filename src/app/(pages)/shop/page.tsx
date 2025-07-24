@@ -8,6 +8,8 @@ const products = Array.from({ length: 50 }, (_, i) => ({
   price: 80 + ((i * 5) % 100),
   category: ["Premium", "Luxury", "Traditional", "Standard"][i % 4],
   image: "/assets/dates5.webp",
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  size: "Small",
 }));
 import useStore from "../../store/store";
 import useProductStore from "@/app/store/product";

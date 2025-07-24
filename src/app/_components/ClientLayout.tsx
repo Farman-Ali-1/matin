@@ -12,7 +12,10 @@ export default function ClientLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const hideNavbar = ["/login", "/register"].includes(pathname);
+
+  // Hide navbar & footer on these routes
+  const hideNavbar =
+    ["/login", "/register"].includes(pathname) || pathname.startsWith("/dashboard");
 
   return (
     <div className="hide-scrollbar">

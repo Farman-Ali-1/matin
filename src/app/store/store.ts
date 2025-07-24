@@ -6,17 +6,17 @@ interface Product {
   name: string;
   price: number;
   size: string;
-  color: string;
   image: string;
   quantity: number;
 }
 
+
 interface Store {
   cart: Product[];
   addtoCart: (product: Product) => void;
-  removeFromCart: (id: number, size: string, color: string) => void;
-  incrementQuantity: (id: number, size: string, color: string) => void;
-  decrementQuantity: (id: number, size: string, color: string) => void;
+  removeFromCart: (id: number, size: string) => void;
+  incrementQuantity: (id: number, size: string) => void;
+  decrementQuantity: (id: number, size: string) => void;
   clearCart: () => void;
   getCart: () => Product[];
 
@@ -34,15 +34,14 @@ const useStore = create<Store>()(
     (set, get) => ({
       cart: [],
 
-      addtoCart: (product) =>
+      addtoCart: (product: Product) =>
         set((state) => {
           const quantityToAdd = product.quantity || 1;
 
           const existingIndex = state.cart.findIndex(
             (item) =>
               item.id === product.id &&
-              item.size === product.size &&
-              item.color === product.color
+              item.size === product.size
           );
 
           if (existingIndex !== -1) {
@@ -56,29 +55,28 @@ const useStore = create<Store>()(
           }
         }),
 
-      removeFromCart: (id, size, color) =>
+      removeFromCart: (id, size) =>
         set((state) => ({
           cart: state.cart.filter(
             (item) =>
-              !(item.id === id && item.size === size && item.color === color)
+              !(item.id === id && item.size === size)
           ),
         })),
 
-      incrementQuantity: (id, size, color) =>
+      incrementQuantity: (id, size) =>
         set((state) => ({
           cart: state.cart.map((item) =>
-            item.id === id && item.size === size && item.color === color
+            item.id === id && item.size === size 
               ? { ...item, quantity: item.quantity + 1 }
               : item
           ),
         })),
 
-      decrementQuantity: (id, size, color) =>
+      decrementQuantity: (id, size, ) =>
         set((state) => ({
           cart: state.cart.map((item) =>
             item.id === id &&
             item.size === size &&
-            item.color === color &&
             item.quantity > 1
               ? { ...item, quantity: item.quantity - 1 }
               : item
@@ -102,7 +100,6 @@ const useStore = create<Store>()(
             name: `${packaging.title} - ${size.label}`,
             price: size.price + packaging.price,
             size: size.label,
-            color: "", // Not applicable, set as empty
             image,
             quantity: 1,
           };

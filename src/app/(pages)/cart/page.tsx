@@ -10,24 +10,24 @@ export default function Page() {
   const handleQuantity = (index: number, type: string) => {
     const product = cart[index];
     if (type === "inc") {
-      incrementQuantity(product.id, product.size, product.color);
+      incrementQuantity(product.id, product.size);
     } else if (type === "dec") {
-      decrementQuantity(product.id, product.size, product.color);
+      decrementQuantity(product.id, product.size);
     }
   };
 
   const handleRemove = (index: number) => {
     const product = cart[index];
-    removeFromCart(product.id, product.size, product.color);
+    removeFromCart(product.id, product.size);
   };
 
   const subtotal = cart.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
   );
-  const discount = subtotal * 0.2;
+  // const discount = subtotal * 0.2;
   const deliveryFee = 15;
-  const total = subtotal - discount + deliveryFee;
+  const total = subtotal  + deliveryFee;
 
   return (
     <div className="min-h-screen bg-white text-text p-4 sm:px-6 md:px-10 lg:px-20 font-sans flex flex-col gap-10">
@@ -43,7 +43,7 @@ export default function Page() {
             ) : (
               cart.map((product, index) => (
                 <div
-                  key={`${product.id}-${product.size}-${product.color}`}
+                  key={`${product.id}-${product.size}`}
                   className="flex flex-row sm:items-start justify-between gap-4 border-b pb-4"
                 >
                   {/* Image */}
@@ -61,7 +61,6 @@ export default function Page() {
                   <div className="flex flex-col gap-1 flex-1">
                     <p className="font-semibold text-sm">{product.name}</p>
                     <p className="text-xs">Size: {product.size}</p>
-                    <p className="text-xs">Color: {product.color}</p>
                     <p className="mt-1 font-bold">${product.price}</p>
                   </div>
 
@@ -100,10 +99,10 @@ export default function Page() {
             <span>Subtotal</span>
             <span>${subtotal}</span>
           </div>
-          <div className="flex justify-between text-sm mb-2">
+          {/* <div className="flex justify-between text-sm mb-2">
             <span>Discount(-20%)</span>
             <span>-${discount.toFixed(0)}</span>
-          </div>
+          </div> */}
           <div className="flex justify-between text-sm mb-4">
             <span>Delivery Fee</span>
             <span>${deliveryFee}</span>
@@ -114,7 +113,7 @@ export default function Page() {
             <span>${total.toFixed(0)}</span>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 mb-4">
+          {/* <div className="flex flex-col sm:flex-row gap-3 mb-4">
             <input
               type="text"
               placeholder="Add promo code"
@@ -123,7 +122,7 @@ export default function Page() {
             <button className="px-4 py-2 text-sm bg-background text-white rounded-full hover:opacity-90">
               Apply
             </button>
-          </div>
+          </div> */}
 
           <button className="w-full py-3 bg-background text-white rounded-full font-semibold hover:opacity-90">
             Go to checkout →
